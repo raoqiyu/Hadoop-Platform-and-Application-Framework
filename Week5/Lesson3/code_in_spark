@@ -1,0 +1,10 @@
+show_views = show_views_file.map(split_show_views)
+
+show_channel = show_channel_file.map(split_show_channel)
+
+joined_dataset = show_channel.join(show_views)
+
+channel_views = joined_dataset.map(extract_channel_views)
+
+channel_views.reduceByKey(some_function).collect()
+
